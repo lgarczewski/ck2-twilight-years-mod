@@ -1,0 +1,46 @@
+decisions = {
+	decision_twilight_vivente_rege = {
+		is_high_prio = yes
+		ai = no
+
+		potential = {
+			# elective monarchy
+			has_law = succ_feudal_elective
+
+			# has a son or daughter as heir, of the same dynasty
+			has_living_children = yes
+
+			prisoner = no
+
+			has_regent = no
+		}
+
+		allow = {
+			# is at peace
+			war = no
+
+			# son is currently leading in election
+			current_heir = {
+				is_child_of = ROOT
+				age = 7
+
+				# personal opinion of kid is positive
+				# @TODO
+			}
+
+			# council is content
+			is_council_content = yes
+
+			# council agrees
+		}
+
+		effect = {
+			# nobility angry (absolutism)
+			# council is discontent
+			# title change for kid (king)
+			# count years in charge for kid from this day
+			# kid opinion mod +100
+			# ensures kid will inherit
+		}
+	}
+}

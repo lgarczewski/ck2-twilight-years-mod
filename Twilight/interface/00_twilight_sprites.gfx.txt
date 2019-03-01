@@ -1,0 +1,7 @@
+spriteTypes = {
+ 
+  spriteType = {
+    name = "GFX_decision_twilight_abdicate"
+    texturefile = "gfx\\interface\\decision_icon_faction_lower_crown_authority_ultimatum.dds"
+  }
+}

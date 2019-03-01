@@ -1,0 +1,52 @@
+decisions = {
+decision_twilight_abdicate = {
+	is_high_prio = yes
+	ai = no
+
+	potential = {
+		is_adult = yes
+
+		prisoner = no
+		age = 60
+	
+		is_ruler = yes
+		is_landed = yes
+	
+		NOT = { trait = ambitious }	
+		NOT = {	trait = paranoid }
+		NOT = { trait = lunatic }
+
+		has_regent = no
+		NOT = { has_character_flag = twilight_is_abdicating }
+	}
+
+	allow = {
+		current_heir = {
+			dynasty = ROOT
+			NOT = { trait = incapable }
+			NOT = { is_older_than = ROOT }
+			is_adult = yes
+		}
+#		personal_opinion = {
+#			who = current_heir
+#			value = 1
+#		}
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = decision_twilight_abdicate_tt
+		}
+		set_character_flag = twilight_is_abdicating
+		character_event = { id = twilight.0001 }
+	}
+
+	revoke_allowed = {
+		always = no
+	}
+
+	ai_will do = {
+		factor = 0
+	}
+}
+}

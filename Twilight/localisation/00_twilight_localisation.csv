@@ -1,0 +1,26 @@
+decision_twilight_abdicate;Abdicate;x
+decision_twilight_abdicate_desc;I grow tired more easily these days. The crown weighs heavy on my poor old head. Perhaps it is time to retire and let [This.Heir.GetBestName] rule in my stead?;x
+decision_twilight_abdicate_desc_extra;Summon my council!;x
+decision_twilight_abdicate_tt;Summon [This.Heir.GetBestName] at once! We need to talk...;x
+
+EVENTTITLEtwilight.0001;The crown is heavy and I am weary...;x
+
+EVENTDESCtwilight.0001;[Root.Heir.GetFirstName] stands before me, with a somewhat puzzled look on [Root.Heir.GetHerHis] face. This is a great burden I would to ask [Root.Heir.GetHerHim] to bear.
+"You wished to see me, [Root.PrimaryTitle.GetFOA]?", [Root.Heir.GetSheHe] finally asks.
+
+I nod and smile. Is [Root.Heir.GetSubjectPronoun] ready for this? Am I?
+
+I take a deep breath.;x
+
+EVTOPTtwilight.0001.1;I am old and tired, [GetFromRelation]. It is time for you to take the crown.;x
+EVTOPTtwilight.0001.2;I... seem to have forgotten why I summoned you. I must be getting old...;x
+
+EVENTTITLEtwilight.0002;It is done, I can rest;x
+EVENTDESCtwilight.0002;There is a long, somber moment of silence between us. As the meaning of my words sinks in my [GetFromRelation] nods very slowly.
+'But what of you? Where will you go?';x
+
+EVTOPTtwilight.0002.1;Do not worry. I will still be here to give you counsel.;x
+EVTOPTtwilight.0002.2;I shall become a monk.;x
+EVTOPTtwilight.0002.3;Oh, don't worry about me. I will do just fine...;x
+EVTOPTtwilight.0002.4;I just want to die in peace, [GetFromRelation].;x
+EVTOPTtwilight.0002.5;I'll be in my library...;x

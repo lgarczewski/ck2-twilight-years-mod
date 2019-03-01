@@ -1,0 +1,186 @@
+namespace = twilight
+narrative_event = {
+	id = twilight.0001
+	namespace = twilight
+	is_triggered_only = yes
+
+	#Fast even triggers
+	only_playable = yes
+
+	# Option: Yes, I want to abdicate
+	option = {
+		name = EVTOPTtwilight.0001.1
+
+		character_event = { id = twilight.0002 }
+	}
+
+	# Option: Lets test them first...
+	# ...
+
+	# Option: On second thought, this is a bad idea...
+	option = {
+		name = EVTOPTtwilight.0001.2
+		clr_character_flag = twilight_is_abdicating
+		current_heir = {
+			opinion = { 
+				modifier = opinion_annoyed
+				who = ROOT
+				months = 1
+			}
+		}
+	}
+
+	title = EVENTTITLEtwilight.0001
+	desc = EVENTDESCtwilight.0001
+	picture = GFX_evt_crown_laws
+	border = GFX_event_narrative_frame_intrigue
+	portrait = current_heir
+}
+
+narrative_event = {
+	id = twilight.0002
+	namespace = twilight
+	is_triggered_only = yes
+
+	#Fast even triggers
+	only_playable = yes
+
+	# debug
+#	option = {
+#		name = CANCEL
+#	}
+
+	# Option: I will become an advisor
+	option = {
+		name = EVTOPTtwilight.0002.1
+
+		abdicate = yes
+
+		add_trait = content
+
+		# make advisor
+		give_minor_title = title_councilmember_king
+		# @TODO make previous monarch not be malcontent
+
+		# add flag
+		set_character_flag = twilight_retired_monarch_advisor
+	}
+
+	# Option: I will become a monk/nun
+	option = {
+		limit = {
+			has_religion_feature = religion_monastic
+		}
+
+		name = EVTOPTtwilight.0002.2
+
+		abdicate = yes
+
+		if = {
+			limit { is_female = yes }
+			add_trait = nun	
+		} else = {
+			add_trait = monk
+		}
+
+		add_trait = content
+
+		# move to monastery within domain
+		random_realm_lord = { 
+				limit {
+					# @TODO improve selection based on opinion, etc.
+					is_theocracy = yes 
+				}
+			ROOT = { 
+				move_character = PREV
+			}
+		}
+
+		set_character_flag = twilight_retired_monarch_monk
+	}
+
+	# Option: drink myself stupid
+	option = {
+		name = EVTOPTtwilight.0002.3
+
+		trigger = {
+			trait = drunkard
+		}
+		tooltip_info = drunkard
+
+		abdicate = yes
+		add_trait = content
+		set_focus = focus_carousing
+
+		# set some flag or something
+		set_character_flag = twilight_retired_monarch_drunkard
+	}
+
+	# Option: die in peace
+	option = {
+		name = EVTOPTtwilight.0002.4
+
+		trigger = {
+			is_ill = yes
+		}
+		# @TODO show the right trait in tooltip
+		tooltip_info = ill
+
+		abdicate = yes
+		add_trait = content
+
+		add_character_modifier = {
+			health_penalty = -2
+			years = 1
+			stacking = yes
+		}
+
+		set_character_flag = twilight_retired_monarch_ill
+	}
+
+	# Option: read books
+	option {
+		name = EVTOPTtwilight.0002.5
+
+		trigger = {
+			trait = scholar
+		}
+		tooltip_info = scholar
+
+		abdicate = yes
+		add_trait = content
+
+		set_character_flag = twilight_retired_monarch_scholar
+	}
+
+	# Option: hunt one last time
+	option {
+		name = EVTOPTtwilight.0002.6
+
+		trigger = {
+			trait = hunter
+		}
+		tooltip_info = hunter
+
+		abdicate = yes
+		add_trait = content
+		set_focus = focus_hunting
+
+		set_character_flag = twilight_retired_monarch_hunter
+	}
+
+	after = {
+		clr_character_flag = twilight_is_abdicating
+		cancel_ambition = yes
+
+		# @TODO Add nickname
+
+		# @TODO Add chronicle
+	}
+
+	title = EVENTTITLEtwilight.0002
+	desc = EVENTDESCtwilight.0002
+	picture = GFX_evt_crown_laws
+	border = GFX_event_narrative_frame_intrigue
+	portrait = current_heir
+}
