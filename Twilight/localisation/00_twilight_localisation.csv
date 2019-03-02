@@ -24,3 +24,10 @@ EVTOPTtwilight.0002.2;I shall become a monk.;x
 EVTOPTtwilight.0002.3;Oh, don't worry about me. I will do just fine...;x
 EVTOPTtwilight.0002.4;I just want to die in peace, [GetFromRelation].;x
 EVTOPTtwilight.0002.5;I'll be in my library...;x
+### GAME RULES ###
+TWILIGHT_GAME_RULES_GROUP;Twilight Years Mod;x
+TWILIGHT_FORCED_ABDICATION_EVENTS_RULE;Forced abdication events;x
+TWILIGHT_FORCED_ABDICATION_EVENTS_ON;Enabled;x
+TWILIGHT_FORCED_ABDICATION_EVENTS_ON_DESC;Players and AI will be able to take decisions to overthrow a senile ruler without a war.;x
+TWILIGHT_FORCED_ABDICATION_EVENTS_OFF;Disabled;x
+TWILIGHT_FORCED_ABDICATION_EVENTS_OFF_DESC;Old rulers can only abdicate through a choice of their own or when defeated in war.;x

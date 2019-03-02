@@ -1,0 +1,14 @@
+twilight_forced_abdication_events = {
+    name = TWILIGHT_FORCED_ABDICATION_EVENTS_RULE
+    group = TWILIGHT_GAME_RULES_GROUP
+    option = {
+        name = twilight_use_forced_abdication_events
+        text = TWILIGHT_FORCED_ABDICATION_EVENTS_ON
+        desc = TWILIGHT_FORCED_ABDICATION_EVENTS_ON_DESC
+    }
+    option = {
+        name = twilight_skip_forced_abdication_events
+        text = TWILIGHT_FORCED_ABDICATION_EVENTS_OFF
+        desc = TWILIGHT_FORCED_ABDICATION_EVENTS_OFF_DESC
+    }
+}
