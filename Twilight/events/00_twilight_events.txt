@@ -42,7 +42,7 @@ narrative_event = {
 	namespace = twilight
 	is_triggered_only = yes
 
-	#Fast even triggers
+	#Fast event triggers
 	only_playable = yes
 
 	# debug
@@ -53,6 +53,8 @@ narrative_event = {
 	# Option: I will become an advisor
 	option = {
 		name = EVTOPTtwilight.0002.1
+
+		twilight_abdication_effect = yes
 
 		add_trait = content
 
@@ -78,6 +80,8 @@ narrative_event = {
 		} else = {
 			add_trait = monk
 		}
+
+		twilight_abdication_effect = yes
 
 		add_trait = content
 		give_nickname =	nick_the_hermit
@@ -105,6 +109,8 @@ narrative_event = {
 		}
 		tooltip_info = drunkard
 
+		twilight_abdication_effect = yes
+
 		add_trait = content
 		set_focus = focus_carousing
 		give_nickname = nick_the_drunkard
@@ -122,6 +128,8 @@ narrative_event = {
 		}
 		# @TODO show the right trait in tooltip
 		tooltip_info = ill
+
+		twilight_abdication_effect = yes
 
 		add_trait = content
 
@@ -164,17 +172,7 @@ narrative_event = {
 	}
 
 	after = {
-		hidden_tooltip = {
-			current_heir = {
-				wealth = ROOT
-			}
-			clear_wealth = yes
-			transfer_crown_on_abdication_effect = yes
-		}
-		abdicate = yes
-
 		clr_character_flag = twilight_is_abdicating
-		cancel_ambition = yes
 
 		# @TODO Add chronicle
 	}

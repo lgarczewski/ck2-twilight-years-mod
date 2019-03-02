@@ -1,0 +1,22 @@
+#SCOPE: #THIS = Character
+twilight_abdication_effect = {
+    hidden_tooltip = {
+        current_heir = {
+            wealth = ROOT
+        }
+        clear_wealth = yes
+        transfer_crown_on_abdication_effect = yes
+        opinion = {
+            modifier = opinion_very_grateful
+            who = current_heir
+            years = 3
+        }
+        reverse_opinion = {
+            modifier = opinion_very_grateful
+            who = current_heir
+            years = 3
+        }
+    }
+    cancel_ambition = yes
+    abdicate = yes
+}
