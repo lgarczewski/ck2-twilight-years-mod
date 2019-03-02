@@ -22,7 +22,7 @@ narrative_event = {
 		name = EVTOPTtwilight.0001.2
 		clr_character_flag = twilight_is_abdicating
 		current_heir = {
-			opinion = { 
+			opinion = {
 				modifier = opinion_annoyed
 				who = ROOT
 				months = 1
@@ -54,8 +54,6 @@ narrative_event = {
 	option = {
 		name = EVTOPTtwilight.0002.1
 
-		abdicate = yes
-
 		add_trait = content
 
 		# make advisor
@@ -74,24 +72,23 @@ narrative_event = {
 
 		name = EVTOPTtwilight.0002.2
 
-		abdicate = yes
-
 		if = {
-			limit { is_female = yes }
-			add_trait = nun	
+			limit = { is_female = yes }
+			add_trait = nun
 		} else = {
 			add_trait = monk
 		}
 
 		add_trait = content
+		give_nickname =	nick_the_hermit
 
 		# move to monastery within domain
-		random_realm_lord = { 
-				limit {
+		random_realm_lord = {
+				limit = {
 					# @TODO improve selection based on opinion, etc.
-					is_theocracy = yes 
+					is_theocracy = yes
 				}
-			ROOT = { 
+			ROOT = {
 				move_character = PREV
 			}
 		}
@@ -108,9 +105,9 @@ narrative_event = {
 		}
 		tooltip_info = drunkard
 
-		abdicate = yes
 		add_trait = content
 		set_focus = focus_carousing
+		give_nickname = nick_the_drunkard
 
 		# set some flag or something
 		set_character_flag = twilight_retired_monarch_drunkard
@@ -126,7 +123,6 @@ narrative_event = {
 		# @TODO show the right trait in tooltip
 		tooltip_info = ill
 
-		abdicate = yes
 		add_trait = content
 
 		add_character_modifier = {
@@ -139,7 +135,7 @@ narrative_event = {
 	}
 
 	# Option: read books
-	option {
+	option = {
 		name = EVTOPTtwilight.0002.5
 
 		trigger = {
@@ -147,14 +143,13 @@ narrative_event = {
 		}
 		tooltip_info = scholar
 
-		abdicate = yes
 		add_trait = content
 
 		set_character_flag = twilight_retired_monarch_scholar
 	}
 
 	# Option: hunt one last time
-	option {
+	option = {
 		name = EVTOPTtwilight.0002.6
 
 		trigger = {
@@ -162,7 +157,6 @@ narrative_event = {
 		}
 		tooltip_info = hunter
 
-		abdicate = yes
 		add_trait = content
 		set_focus = focus_hunting
 
@@ -170,10 +164,17 @@ narrative_event = {
 	}
 
 	after = {
+		hidden_tooltip = {
+			current_heir = {
+				wealth = ROOT
+			}
+			clear_wealth = yes
+			transfer_crown_on_abdication_effect = yes
+		}
+		abdicate = yes
+
 		clr_character_flag = twilight_is_abdicating
 		cancel_ambition = yes
-
-		# @TODO Add nickname
 
 		# @TODO Add chronicle
 	}
