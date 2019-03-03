@@ -1,0 +1,125 @@
+namespace = twilight
+
+# ex Monarch gets drunk at court
+narrative_event = {
+	id = twilight.0010
+
+    title = EVENTTITLEtwilight.0010
+    desc = EVENTDESCtwilight.0010
+    picture = GFX_evt_drunk
+    border = GFX_event_frame_diplomacy
+    portrait = persistent_event_target:twilight_retired_monarch
+
+    trigger = {
+        persistent_event_target:twilight_retired_monarch = {
+            has_character_flag = twilight_retired_monarch_drunkard
+            prisoner = no
+        }
+    }
+
+    mean_time_to_happen = {
+        months = 3
+        modifier = {
+            factor = 0.5
+            has_character_flag = holding_large_feast # change to after feast
+        }
+        # @TODO add more modifires
+    }
+
+    # Enough! Get out, you old fool!
+    option = {
+        name = EVTOPTtwilight.0010.1
+
+        persistent_event_target:twilight_retired_monarch = {
+            opinion = {
+                who = ROOT
+                modifier = opinion_angry
+                months = 3
+            }
+        }
+        prestige = -20
+        opinion = {
+            who = persistent_event_target:twilight_retired_monarch
+            modifier = opinion_furious
+            months = 6
+        }
+        if = {
+            limit = {
+                NOR = {
+                    trait = wroth
+                    trait = kind
+                }
+            }
+            random = {
+                chance = 30
+                add_trait = wroth
+            }
+        }
+    }
+
+    # Let me help you
+    option = {
+        name = EVTOPTtwilight.0010.2
+
+        persistent_event_target:twilight_retired_monarch = {
+            opinion = {
+                who = ROOT
+                modifier = opinion_grateful
+                months = 3
+            }
+        }
+        prestige = -20
+        if = {
+            limit = {
+                NOR = {
+                    trait = wroth
+                    trait = kind
+                }
+            }
+            random = {
+                chance = 30
+                add_trait = kind
+            }
+        }
+    }
+
+    # Guards, take him to his quarters. Now.
+    option = {
+        name = EVTOPTtwilight.0010.3
+
+        prestige = -50
+        # imprison old king
+        persistent_event_target:twilight_retired_monarch = {
+            hidden_tooltip = {
+                imprison = ROOT
+                remove_character_modifier = the_dungeon
+            }
+            add_character_modifier = {
+                name = house_arrest
+                duration = -1
+            }
+            opinion = {
+                who = ROOT
+                modifier = opinion_angry
+                months = 3
+            }
+        }
+    }
+
+    after = {
+        # negative opinion from council towards old king
+        # @TODO this is not the right scoping, fix me
+        persistent_event_target:twilight_retired_monarch = {
+            prestige = -20
+            ROOT = {
+                any_voter = {
+                    opinion = {
+                        who = PREVPREV
+                        modifier = opinion_annoyed
+                        months = 3
+                    }
+                }
+            }
+        }
+    }
+}

@@ -24,9 +24,23 @@ EVTOPTtwilight.0002.2;I shall become a monk.;x
 EVTOPTtwilight.0002.3;Oh, don't worry about me. I will do just fine...;x
 EVTOPTtwilight.0002.4;I just want to die in peace, [GetFromRelation].;x
 EVTOPTtwilight.0002.5;I'll be in my library...;x
+
+EVENTTITLEtwilight.0010;How the mighty have fallen...;x
+EVENTDESCtwilight.0010;The old monarch barges into your council meeting, disheveled and staggering.
+The odour of wine and sweat fills the room, as the whispers start.
+Grinning and red-faced [twilight_retired_monarch.GetSheHe] roars out a laugh, approaching slowly.
+
+'You lot talk too much! Especially you, [Root.job_chancellor.GetFirstName]!' [twilight_retired_monarch.GetSheHe] bellows, slapping the chancellor on the back.
+
+'I sh-shall... save you some talking! I say we go to war! Now!' [twilight_retired_monarch.GetSheHe] shouts with a raised fist. 'I-I order you to... to...';x
+
+EVTOPTtwilight.0010.1;Enough! Get out, you old fool!;x
+EVTOPTtwilight.0010.2;Let me help you...;x
+EVTOPTtwilight.0010.3;Guards, take him to his chambers. Now.;x
+
 ### GAME RULES ###
 TWILIGHT_GAME_RULES_GROUP;Twilight Years Mod;x
-TWILIGHT_FORCED_ABDICATION_EVENTS_RULE;Forced abdication events;x
+TWILIGHT_FORCED_ABDICATION_EVENTS_RULE;�BTwilight Years:�! Forced abdication events;x
 TWILIGHT_FORCED_ABDICATION_EVENTS_ON;Enabled;x
 TWILIGHT_FORCED_ABDICATION_EVENTS_ON_DESC;Players and AI will be able to take decisions to overthrow a senile ruler without a war.;x
 TWILIGHT_FORCED_ABDICATION_EVENTS_OFF;Disabled;x

@@ -1,7 +1,6 @@
 namespace = twilight
 narrative_event = {
 	id = twilight.0001
-	namespace = twilight
 	is_triggered_only = yes
 
 	#Fast even triggers
@@ -15,7 +14,13 @@ narrative_event = {
 	}
 
 	# Option: Lets test them first...
-	# ...
+	option = {
+		name = EVTOPTtwilight.0001.3
+
+		character_event = { id = twilight.0003 }
+
+		custom_tooltip = { text = EVTOPTtwilight.0001.3.tooltip }
+	}
 
 	# Option: On second thought, this is a bad idea...
 	option = {
@@ -39,16 +44,19 @@ narrative_event = {
 
 narrative_event = {
 	id = twilight.0002
-	namespace = twilight
 	is_triggered_only = yes
 
 	#Fast event triggers
 	only_playable = yes
 
-	# debug
-#	option = {
-#		name = CANCEL
-#	}
+	immediate = {
+		current_heir = {
+			save_persistent_event_target = {
+				name = twilight_retired_monarch
+				scope = ROOT
+			}
+		}
+	}
 
 	# Option: I will become an advisor
 	option = {
@@ -60,7 +68,6 @@ narrative_event = {
 
 		# make advisor
 		give_minor_title = title_councilmember_king
-		# @TODO make previous monarch not be malcontent
 
 		# add flag
 		set_character_flag = twilight_retired_monarch_advisor
